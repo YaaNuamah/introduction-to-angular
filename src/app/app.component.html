@@ -1,6 +1,13 @@
 <h2>{{ title }}</h2>
 <img [src] ="imgUrl" />
-<button (click)= "onSave($event)">Save</button>
-<input [(ngModel)]= "fullName" /> <br/><br/>
-<p>{{ fullName }}</p>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+    </tr>
+    <tr *ngFor="let coin of coins">
+        <td>{{coin.id}}</td>
+        <td>{{coin.name}}</td>
+    </tr>
+</table>
 <router-outlet></router-outlet>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CryptoService} from './crypto.service';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Data Binding Example using Two Way Binding';
+  title = 'Angular Services';
     imgUrl = "https://peerbits-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/whats-new-in-angular-min.jpg"
-    
-    onSave($event) {
-      console.log("Save button is clicked!", $event);
-   }
+     
+    coins = [];
 
-   fullName: String = "Hello Frederick";
-
+    constructor(private cryptoservice: CryptoService) {
+      this.coins = cryptoservice.getMyItems()
+    }
 }
